@@ -1,0 +1,17 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node:4.8.2
+      - image: postgres
+    working_directory: ~/aedifex
+    environment:
+      PG_USER: chris
+    steps:
+      - checkout
+      - run:
+          name: Update NPM
+          command: |
+            sudo npm install -g npm@5
+
+
