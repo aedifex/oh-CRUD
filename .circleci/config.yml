@@ -14,5 +14,17 @@ jobs:
           command: |
             whoami
             sudo npm install -g npm@5
+      - run:
+            psql \
+            -d $TEST_DATABASE_URL \
+            -c "CREATE TABLE test (name char(25));"
+      - run: |
+            psql \
+            -d $TEST_DATABASE_URL \
+            -c "INSERT INTO test VALUES ('John'), ('Joanna'), ('Jennifer');"
+      - run: |
+            psql \
+            -d $TEST_DATABASE_URL \
+            -c "SELECT * from test"
 
 
