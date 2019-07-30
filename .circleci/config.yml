@@ -12,6 +12,7 @@ jobs:
       - run:
           name: Update NPM
           command: |
+            whoami
             sudo npm install -g npm@5
 
 
