@@ -1,30 +1,23 @@
+workflows:
+  version: 2
+  build-test-&-deploy:
+    jobs:
+      - build
+
 version: 2
 jobs:
   build:
-    docker:
-      - image: circleci/node:4.8.2
-      - image: postgres
-    working_directory: ~/aedifex
-    environment:
-      PG_USER: chris
+    working_directory: ~/
+    machine: true
     steps:
       - checkout
-      - run:
-          name: Update NPM
-          command: |
-            whoami
-            sudo npm install -g npm@5
-      - run:
-            psql \
-            -d $TEST_DATABASE_URL \
-            -c "CREATE TABLE test (name char(25));"
-      - run: |
-            psql \
-            -d $TEST_DATABASE_URL \
-            -c "INSERT INTO test VALUES ('John'), ('Joanna'), ('Jennifer');"
-      - run: |
-            psql \
-            -d $TEST_DATABASE_URL \
-            -c "SELECT * from test"
+
+      #  TODO: set up a few unit tests
+      # - store_test_results:
+      #     path: /home/circleci/projectName/webapp/test-reports
+
+      # - store_artifacts:
+      #     path: /home/circleci/projectName/webapp/test-reports
 
 
+      - run: docker build -t oh-crud .
