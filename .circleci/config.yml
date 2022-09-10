@@ -2,12 +2,12 @@ orbs:
   aws-ecr: circleci/aws-ecr@8.1.2
 
 workflows:
-  version: 2
+  version: 2.1
   build-test-&-deploy:
     jobs:
       - build
 
-version: 2
+version: 2.1
 jobs:
   build:
     working_directory: ~/project
@@ -24,4 +24,4 @@ jobs:
 
 
       # - run: docker build -t oh-crud .
-      - aws-ecr/build-and-push-image:
+      - aws-ecr/build-and-push-image
