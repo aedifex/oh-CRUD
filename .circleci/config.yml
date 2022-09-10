@@ -7,6 +7,12 @@ workflows:
     jobs:
       - build
 
+parameters:
+  ecr-repo:
+    type: string
+    default: "foo"
+
+
 version: 2.1
 jobs:
   build:
@@ -25,4 +31,4 @@ jobs:
 
       # - run: docker build -t oh-crud .
       - aws-ecr/build-and-push-image:
-          repo: $repo
+          repo: << pipeline.parameters.ecr-repo >>
