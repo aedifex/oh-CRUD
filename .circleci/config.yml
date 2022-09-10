@@ -16,6 +16,8 @@ parameters:
 version: 2.1
 jobs:
   build:
+    ennvironment:
+      ECR_REPO: << pipeline.parameters.ecr-repo >>
     working_directory: ~/project
     machine: true
     steps:
@@ -31,4 +33,4 @@ jobs:
 
       # - run: docker build -t oh-crud .
       - aws-ecr/build-and-push-image:
-          repo: << pipeline.parameters.ecr-repo >>
+          repo: $ECR_REPO
