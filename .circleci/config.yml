@@ -1,3 +1,6 @@
+orbs:
+  aws-ecr: circleci/aws-ecr@8.1.2
+
 workflows:
   version: 2
   build-test-&-deploy:
@@ -20,4 +23,5 @@ jobs:
       #     path: /home/circleci/projectName/webapp/test-reports
 
 
-      - run: docker build -t oh-crud .
+      # - run: docker build -t oh-crud .
+      - aws-ecr/build-and-push-image
