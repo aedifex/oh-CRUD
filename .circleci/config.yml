@@ -24,4 +24,5 @@ jobs:
 
 
       # - run: docker build -t oh-crud .
-      - aws-ecr/build-and-push-image
+      - aws-ecr/build-and-push-image:
+          repo: $repo
