@@ -16,7 +16,7 @@ parameters:
 version: 2.1
 jobs:
   build:
-    ennvironment:
+    environment:
       ECR_REPO: << pipeline.parameters.ecr-repo >>
     working_directory: ~/project
     machine: true
