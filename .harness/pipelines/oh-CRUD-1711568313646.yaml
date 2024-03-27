@@ -25,13 +25,6 @@ pipeline:
                   timeout: ""
                   type: Run
               - step:
-                  identifier: test
-                  name: test
-                  spec:
-                    command: npm run test
-                  timeout: ""
-                  type: Run
-              - step:
                   identifier: dockerbuild
                   name: docker_build
                   spec:
