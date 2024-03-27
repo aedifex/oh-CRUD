@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_aedifex_oh_CRUD_1711568318821-push-trigger-input-set
+  identifier: Build_aedifex_oh_CRUD_1711568318821pushtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: ohCRUD20
+  pipeline:
+    identifier: Build_aedifex_oh_CRUD_1711568318821
+    properties:
+      ci:
+        codebase:
+          build:
+            type: branch
+            spec:
+              branch: <+trigger.branch>
