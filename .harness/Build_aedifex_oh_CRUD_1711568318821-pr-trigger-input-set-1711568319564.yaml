@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_aedifex_oh_CRUD_1711568318821-pr-trigger-input-set
+  identifier: Build_aedifex_oh_CRUD_1711568318821prtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: ohCRUD20
+  pipeline:
+    identifier: Build_aedifex_oh_CRUD_1711568318821
+    properties:
+      ci:
+        codebase:
+          build:
+            type: PR
+            spec:
+              number: <+trigger.prNumber>
