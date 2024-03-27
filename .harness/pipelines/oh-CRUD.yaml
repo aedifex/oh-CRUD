@@ -1,0 +1,44 @@
+pipeline:
+  name: OhCrudPipeline
+  identifier: oh_crud_pipeline
+  stages:
+    - stage:
+        name: BuildAndPackage
+        identifier: build_and_package
+        type: CI
+        spec:
+          cloneCodebase: true
+          build:
+            steps:
+              - step:
+                  name: BuildDockerImage
+                  identifier: build_docker_image
+                  type: ShellScript
+                  spec:
+                    shell: Bash
+                    script: |
+                      # Build the Docker image with the build ID as a tag
+                      docker build -t oh-crud:${HARNESS_BUILD_ID} .
+                      # Optionally, echo the build ID for verification in logs
+                      echo "Built image oh-crud:${HARNESS_BUILD_ID}"
+                    environmentVariables:
+                      - name: HARNESS_BUILD_ID
+                        value: <+pipeline.sequenceId>
+              - step:
+                  name: PassBuildId
+                  identifier: pass_build_id
+                  type: ShellScript
+                  spec:
+                    shell: Bash
+                    script: |
+                      # Example step showing how to use the build ID
+                      # This could be a script to modify your application's config or similar
+                      echo "Using build ID ${HARNESS_BUILD_ID} in application"
+                    environmentVariables:
+                      - name: HARNESS_BUILD_ID
+                        value: <+pipeline.sequenceId>
+          # infrastructure:
+          #   type: KubernetesDirect
+          #   spec:
+          #     connectorRef: myK8sCluster
+          #     namespace: default

@@ -15,6 +15,10 @@ app.get('/', (request, response) => {
   response.json({ info: 'Node.js, Express, and Postgres API AND ECR' })
 })
 
+app.get('/version', (request, response) => {
+	response.json({ version: '0.1', build_id: process.env.BUILD_ID || 'unknown' })
+})
+
 app.get('/users', db.getUsers)
 app.get('/users/:id', db.getUserById)
 app.post('/users', db.createUser)

@@ -1,4 +1,5 @@
 const Pool = require('pg').Pool
+// Envars should be used to manage these credentials.
 const pool = new Pool({
   user: 'me',
   host: 'localhost',
@@ -27,12 +28,13 @@ const getUserById = (request, response) => {
 }
 
 const createUser = (request, response) => {
-  // const { name, email } = request.body
+  const { name, email } = request.body
 
   pool.query('INSERT INTO users (name, email) VALUES ($1, $2)', [name, email], (error, results) => {
     if (error) {
       throw error
     }
+    console.log(result.insertId)
     response.status(201).send(`User added with ID: ${results.insertId}`)
   })
 }
@@ -40,6 +42,7 @@ const createUser = (request, response) => {
 const updateUser = (request, response) => {
   const id = parseInt(request.params.id)
   const { name, email } = request.body
+  console.log(request.body)
 
   pool.query(
     'UPDATE users SET name = $1, email = $2 WHERE id = $3',

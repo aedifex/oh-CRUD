@@ -7,3 +7,6 @@ CREATE TABLE users (
 );
 
 INSERT INTO users (name, email) VALUES ('Jerry', 'jerry@example.com'), ('George', 'george@example.com');
+
+
+INSERT INTO users (name, email) VALUES ('Daniel', 'daniel@example.com'), ('Mike', 'mike@example.com');
