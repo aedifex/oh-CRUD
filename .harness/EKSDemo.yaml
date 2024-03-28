@@ -3,3 +3,6 @@ service:
   identifier: EKSDemo
   orgIdentifier: default
   projectIdentifier: ohCRUD20
+  serviceDefinition:
+    spec: {}
+    type: Kubernetes
