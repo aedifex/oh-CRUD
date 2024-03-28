@@ -1,0 +1,8 @@
+service:
+  name: EKS-Demo
+  identifier: EKSDemo
+  orgIdentifier: default
+  projectIdentifier: ohCRUD20
+  serviceDefinition:
+    spec: {}
+    type: Kubernetes
