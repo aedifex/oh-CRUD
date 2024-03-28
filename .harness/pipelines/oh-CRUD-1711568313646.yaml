@@ -28,7 +28,14 @@ pipeline:
                   identifier: buildimage
                   name: Build Docker Image
                   spec:
-                    command: docker build -t oh-crud .
+                    command: docker build -t harness:local .
+                  timeout: ""
+                  type: Run
+              - step:
+                  identifier: tagimage
+                  name: Tag Docker Image
+                  spec:
+                    command: docker tag harness:local 824987503353.dkr.ecr.us-east-2.amazonaws.com/jfrog:latest
                   timeout: ""
                   type: Run
           platform:
