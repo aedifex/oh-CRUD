@@ -1,12 +1,16 @@
-FROM postgres:14.5
+# Using the newer version of PostgreSQL
+FROM postgres:16.2
 
-RUN apt update
-RUN yes | apt install nodejs
-RUN yes | apt install npm
+# Combine update and package installation steps to reduce layers and clean up in the same layer to reduce image size
+RUN apt-get update && \
+    apt-get install -y nodejs npm && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
-ENV POSTGRES_USER docker
-ENV POSTGRES_PASSWORD docker
-ENV POSTGRES_DB docker
+# Set environment variables for PostgreSQL
+ENV POSTGRES_USER=docker \
+    POSTGRES_PASSWORD=docker \
+    POSTGRES_DB=docker
 
 COPY package*.json ./
 COPY index.js ./index.js
