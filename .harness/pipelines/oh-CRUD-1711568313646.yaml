@@ -38,6 +38,17 @@ pipeline:
                     command: docker tag harness:local 824987503353.dkr.ecr.us-east-2.amazonaws.com/jfrog:latest
                   timeout: ""
                   type: Run
+              - step:
+                  type: BuildAndPushECR
+                  name: BuildAndPushECR_1
+                  identifier: BuildAndPushECR_1
+                  spec:
+                    connectorRef: Aedifex_AWS
+                    region: us-east-2
+                    account: "824987503353"
+                    imageName: harness
+                    tags:
+                      - local
           platform:
             arch: Amd64
             os: Linux
