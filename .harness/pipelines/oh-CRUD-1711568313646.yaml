@@ -1,0 +1,40 @@
+pipeline:
+  identifier: Build_aedifex_oh_CRUD_1711568318821
+  name: Build oh-CRUD
+  orgIdentifier: default
+  projectIdentifier: ohCRUD20
+  properties:
+    ci:
+      codebase:
+        build: <+input>
+        connectorRef: account.Github_OAuth_1711406225860
+        repoName: aedifex/oh-CRUD
+  stages:
+    - stage:
+        identifier: build
+        name: build
+        spec:
+          cloneCodebase: true
+          execution:
+            steps:
+              - step:
+                  identifier: installdependencies
+                  name: Run NPM Install
+                  spec:
+                    command: npm install
+                  timeout: ""
+                  type: Run
+              - step:
+                  identifier: buildimage
+                  name: Build Docker Image
+                  spec:
+                    command: docker build -t oh-crud .
+                  timeout: ""
+                  type: Run
+          platform:
+            arch: Amd64
+            os: Linux
+          runtime:
+            spec: {}
+            type: Cloud
+        type: CI
