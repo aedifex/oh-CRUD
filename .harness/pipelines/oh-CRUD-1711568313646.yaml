@@ -46,7 +46,7 @@ pipeline:
                     connectorRef: Aedifex_AWS
                     region: us-east-2
                     account: "824987503353"
-                    imageName: harness
+                    imageName: jfrog
                     tags:
                       - local
           platform:
