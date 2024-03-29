@@ -1,0 +1,15 @@
+infrastructureDefinition:
+  name: EKS
+  identifier: EKS
+  orgIdentifier: default
+  projectIdentifier: ohCRUD20
+  environmentRef: EKS
+  deploymentType: Kubernetes
+  type: KubernetesAws
+  spec:
+    connectorRef: Aedifex_AWS
+    cluster: aedifex-eks-demo
+    namespace: harness
+    releaseName: release-<+INFRA_KEY_SHORT_ID>
+    region: us-west-1
+  allowSimultaneousDeployments: false
