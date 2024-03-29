@@ -27,11 +27,9 @@ service:
               store:
                 type: Git
                 spec:
-                  connectorRef: account.Github_OAuth_1711406225860
+                  connectorRef: account.Github_OAuth_1711406225860  # Your Git connector for GitHub
                   gitFetchType: Branch
                   paths:
-                    - ./
-                  repoName: aedifex/oh-CRUD
-                  branch: master
-              valuesPaths:
-                - app.yaml
+                    - app.yaml  # Path to your Kubernetes manifest file
+                  repoName: aedifex/oh-CRUD  # Your GitHub repository name
+                  branch: master  # The branch where your Kubernetes manifests are located
