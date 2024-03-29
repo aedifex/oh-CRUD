@@ -8,11 +8,17 @@ service:
     spec:
       artifacts:
         primary:
-          spec:
-            connectorRef: ECR_Docker_Registry
-            imagePath: 824987503353.dkr.ecr.us-east-2.amazonaws.com/jfrog
-            tag: local
-          type: DockerRegistry
+          primaryArtifactRef: <+input>
+          sources:
+            - spec:
+                connectorRef: Aedifex_AWS
+                imagePath: jfrog
+                tag: local
+                digest: ""
+                region: us-east-2
+                registryId: "824987503353"
+              identifier: harnessdemo
+              type: Ecr
       manifests:
         - manifest:
             identifier: ohCrudK8sManifest
