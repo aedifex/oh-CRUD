@@ -27,7 +27,7 @@ service:
               store:
                 type: Git
                 spec:
-                  connectorRef: account.Github_OAuth_1711406225860
+                  connectorRef: GH
                   gitFetchType: Branch
                   paths:
                     - ./app.yaml
