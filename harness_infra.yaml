@@ -7,7 +7,7 @@ infrastructureDefinition:
   deploymentType: Kubernetes
   type: KubernetesAws
   spec:
-    connectorRef: Aedifex_AWS
+    connectorRef: ECR_Docker_Registry
     cluster: aedifex-eks-demo
     namespace: harness
     releaseName: release-<+INFRA_KEY_SHORT_ID>
