@@ -16,6 +16,7 @@ service:
       variables: [] # Define any necessary service variables here
       manifests:
         - manifest:
+            identifier: ohCrudK8sManifest # Added missing identifier
             type: K8sManifest
             spec:
               store:
@@ -24,4 +25,5 @@ service:
                   connectorRef: account.Github_OAuth_1711406225860 # Reference to your Git repo connector
                   repoName: aedifex/oh-CRUD
                   folderPath: app.yaml # E.g., "k8s/deploy"
+                  gitFetchType: Branch # Specify the fetch type, Branch being the most common
                   branch: master # Specify the branch where your manifests are located
