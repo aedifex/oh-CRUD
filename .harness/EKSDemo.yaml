@@ -10,20 +10,22 @@ service:
         primary:
           type: DockerRegistry
           spec:
-            connectorRef: Aedifex_AWS # Reference to your AWS/ECR connector
-            imagePath: "824987503353.dkr.ecr.us-east-2.amazonaws.com/jfrog" # Full image path without tag
-            tag: local # Use a specific tag or <+input> for dynamic input at runtime
-      variables: [] # Define any necessary service variables here
+            connectorRef: Aedifex_AWS
+            imagePath: 824987503353.dkr.ecr.us-east-2.amazonaws.com/jfrog
+            tag: local
       manifests:
         - manifest:
-            identifier: ohCrudK8sManifest # Added missing identifier
+            identifier: ohCrudK8sManifest
             type: K8sManifest
             spec:
               store:
                 type: Git
                 spec:
-                  connectorRef: account.Github_OAuth_1711406225860 # Reference to your Git repo connector
+                  connectorRef: account.Github_OAuth_1711406225860
+                  gitFetchType: Branch
+                  paths:
+                    - ./
                   repoName: aedifex/oh-CRUD
-                  folderPath: app.yaml # E.g., "k8s/deploy"
-                  gitFetchType: Branch # Specify the fetch type, Branch being the most common
-                  branch: master # Specify the branch where your manifests are located
+                  branch: master
+              valuesPaths:
+                - app.yaml
