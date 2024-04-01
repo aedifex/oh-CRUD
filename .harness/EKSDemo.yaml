@@ -21,13 +21,13 @@ service:
               type: Ecr
       manifests:
         - manifest:
-            identifier: ohCrudK8sManifest
+            identifier: harness_gitconnector
             type: K8sManifest
             spec:
               store:
                 type: Git
                 spec:
-                  connectorRef: GH
+                  connectorRef: harnessgitconnector
                   gitFetchType: Branch
                   paths:
                     - ./app.yaml
