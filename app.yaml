@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: hello-crud
-        image: 824987503353.dkr.ecr.us-east-2.amazonaws.com/jfrog:local
+        image: 824987503353.dkr.ecr.us-east-2.amazonaws.com/jfrog:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 3000

@@ -13,7 +13,7 @@ service:
             - spec:
                 connectorRef: Aedifex_AWS
                 imagePath: jfrog
-                tag: local
+                tag: latest
                 digest: ""
                 region: us-east-2
                 registryId: "824987503353"
