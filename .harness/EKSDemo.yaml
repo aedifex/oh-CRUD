@@ -30,6 +30,6 @@ service:
                   connectorRef: harnessgitconnector
                   gitFetchType: Branch
                   paths:
-                    - ./app.yaml
+                    - app.yaml
                   repoName: aedifex/oh-CRUD
                   branch: master
