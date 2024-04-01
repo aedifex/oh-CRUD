@@ -74,10 +74,10 @@ pipeline:
                       primaryArtifactRef: <+input>
                       sources: <+input>
           environment:
-            environmentRef: EKS
+            environmentRef: harness_k8sinfra
             deployToAll: false
             infrastructureDefinitions:
-              - identifier: EKS
+              - identifier: harness_k8sinfra
           execution:
             steps:
               - step:
