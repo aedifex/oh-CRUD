@@ -12,7 +12,7 @@ app.use(
 )
 
 app.get('/', (request, response) => {
-  response.json({ info: 'Node.js, Express, and Postgres API AND ECR' })
+  response.json({ info: 'Node.js, Express, and Postgres API AND ECR', env: 'Harness Demo' })
 })
 
 app.get('/version', (request, response) => {
