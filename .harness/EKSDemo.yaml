@@ -21,7 +21,7 @@ service:
               type: Ecr
       manifests:
         - manifest:
-            identifier: harness_gitconnector
+            identifier: GH
             type: K8sManifest
             spec:
               store:
@@ -30,6 +30,6 @@ service:
                   connectorRef: harnessgitconnector
                   gitFetchType: Branch
                   paths:
-                    - ./app.yaml
+                    - app.yaml
                   repoName: aedifex/oh-CRUD
                   branch: master
