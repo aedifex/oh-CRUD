@@ -74,10 +74,10 @@ pipeline:
                       primaryArtifactRef: <+input>
                       sources: <+input>
           environment:
-            environmentRef: harness_k8sinfra
+            environmentRef: harnessdevenv
             deployToAll: false
             infrastructureDefinitions:
-              - identifier: harness_k8sinfra
+              - identifier: harnessdevenv
           execution:
             steps:
               - step:
