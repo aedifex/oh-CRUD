@@ -27,7 +27,7 @@ service:
               store:
                 type: Github
                 spec:
-                  connectorRef: harnessgitconnector
+                  connectorRef: account.Github_OAuth_1711406225860
                   gitFetchType: Branch
                   paths:
                     - app.yaml
