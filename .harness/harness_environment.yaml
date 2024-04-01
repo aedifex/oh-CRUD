@@ -1,0 +1,8 @@
+environment:
+  name: EKS
+  identifier: EKS
+  description: ""
+  tags: {}
+  type: PreProduction
+  orgIdentifier: default
+  projectIdentifier: ohCRUD20
